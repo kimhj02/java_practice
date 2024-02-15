@@ -1,7 +1,9 @@
+package generic_practice;
+
 class apple{
     public String toString()
     {
-        return "i am a apple.";
+        return "i am an apple";
     }
 }
 
@@ -12,44 +14,31 @@ class orange{
     }
 }
 
-class applebox{
-    private apple ap;
-
-    public void set(apple a)
+class box<a>{
+    private a ob;
+    public void set(a o)
     {
-        ap = a;
+        ob = o;
     }
-    public apple get()
+    public a get()
     {
-        return ap;
-    }
-}
-
-class orangebox{
-    private orange or;
-
-    public void set(orange o)
-    {
-        or = o;
-    }
-    public orange get()
-    {
-        return or;
+        return ob;
     }
 }
 
 public class generic1 {
     public static void main(String[] args) {
-        applebox abox = new applebox();
-        orangebox obox = new orangebox();
+        box<apple> abox = new box<apple>();
+        box<orange> obox = new box<orange>();
 
         abox.set(new apple());
         obox.set(new orange());
 
-        apple ap = abox.get();
-        orange og = obox.get();
+        apple ap = (apple)abox.get();
+        orange or = (orange)obox.get();
 
-        System.out.println(ap.toString()); //toString을 사용한것과 아닌것이 같다
-        System.out.println(og);
+        System.out.println(ap);
+        System.out.println(or);
+
     }
 }
